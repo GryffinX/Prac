@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Test</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+        <h1>Test</h1>
+        <nav>
+            <ol type="a">
+                <li><a href="#html">HTML</a></li>
+                <li><a href="#css">CSS</a></li>
+                <li><a href="#js">JavaScript</a></li>
+            </ol>
+        </nav>
+        </header>
+        <main id="html">
+            <h1>Main element</h1>
+            <p>Picture</p>
+            <img src="https://www.w3schools.com/html/pic_trulli.jpg" alt="Trulli" width="500" height="333" border=""> <br />
+            <p style="font-weight: bold; font-size: 20px;">These are list items:</p>
+            <ul type="circle"> <!-- disc, circle, square -->
+                <li>item 1</li>
+                <li>item 2</li>
+                <li>item 3</li>
+            </ul>
+            <ol type="i" start="7"> <!-- 1, A, a, I, i -->
+                <li>item 1</li>
+                <li>item 2</li>
+                <li>item 3</li>
+            </ol>
+            <dl>
+                <dt>Term</dt>
+                <dd>Definition of the term</dd>
+            </dl>
+            <h2> HTML Form </h2>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+                <br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+                <br><br>
+                <label for="desc">Description: </label><br>
+                <textarea id="desc" name="desc" rows="4" cols="50"></textarea>
+                <br><br>
+                <label for="skills">Skills:</label><br>
+                <input type="checkbox" name="skills" value="html"> HTML
+                <input type="checkbox" name="skills" value="css"> CSS
+                <br><br>
+                <label for="gender">Gender:</label>
+                <input type="radio" name="gender" value="male">Male
+                <input type="radio" name="gender" value="female">Female
+                <br><br>
+                <label for="country">Countries of interest:</label><br>
+                <select id="country" name="country" multiple>
+                    <option value="india">India</option>
+                    <option value="usa">USA</option>
+                    <option value="uk">UK</option>
+                </select>
+                <br><br>
+                <label for="upload">Upload your resume:</label><br>
+                <input type="file" id="upload" name="upload" multiple accept="audio/*, video/*, image/*">
+                <br><br>
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </form>
+            <p><b>HTML Tables</b></p>
+            <table border="1" cellpadding="10" cellspacing="3" bgcolor="pink" bordercolor="green" width="100%">
+                <caption>Sample Table</caption>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th><img src="https://www.w3schools.com/html/pic_trulli.jpg" alt="Trulli" width="500" height="333" border=""></th>
+                        <th>City</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>John Doe</td>
+                    <td>30</td>
+                    <td>New York</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">Jane Smith</td>
+                    <td colspan="1">25</td>
+                    <td>Los Angeles</td>
+                </tr>
+            </table>
+            <p><b>Code elements</b></p>
+            <code>
+                x + 5 = 10;
+            </code>
+            <p><b>Audio and video</b></p>
+            <audio controls>
+                <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <br><br>
+            <video width="320" height="240" controls>
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p><a>Image map</a></p>
+            <img src="https://www.w3schools.com/html/pic_trulli.jpg" alt="Trulli" width="500" height="333" border="" usemap="#image-map">
+            <map name="image-map">
+                <area target="https://www.google.com" alt="Google" title="Google" href="https://www.google.com" coords="34,44,270,350" shape="rect">
+                <area target="https://www.facebook.com" alt="Facebook" title="Facebook" href="https://www.facebook.com" coords="290,172,333,250,290" shape="poly">
+            </map>
+        </main>
+        <footer id="css">
+            <h1>Footer element</h1> 
+            <p>Contact information</p>
+            <a href="mailto:ayushgupta2024a@vitstudent.ac.in">Mail</a>
+        </footer>
+    </body>
+</html>

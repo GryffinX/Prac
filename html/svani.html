@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SVG Animations + Mickey</title>
+
+<style>
+
+/* ---------- BASE ---------- */
+svg {
+  border: 2px solid black;
+  margin: 20px;
+}
+
+/* ---------- COLOR CHANGE ---------- */
+.color-change {
+  animation: colorChange 3s infinite;
+}
+@keyframes colorChange {
+  0%   { fill: red; }
+  50%  { fill: yellow; }
+  100% { fill: blue; }
+}
+
+/* ---------- ROTATE ---------- */
+.rotate {
+  transform-origin: center;
+  animation: rotate 3s infinite linear;
+}
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ---------- BOUNCE ---------- */
+.bounce {
+  animation: bounce 1.5s infinite;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-40px); }
+}
+
+/* ---------- SLIDE ---------- */
+.slide {
+  animation: slide 2s infinite alternate;
+}
+@keyframes slide {
+  from { transform: translateX(0); }
+  to   { transform: translateX(100px); }
+}
+
+</style>
+</head>
+
+<body>
+
+<h2>SVG + Mickey Mouse Face</h2>
+
+<svg width="600" height="400">
+
+  <!-- 1. Circle (Color Change) -->
+  <circle cx="50" cy="60" r="30"
+          class="color-change" />
+
+  <!-- 2. Rectangle (Rotate) -->
+  <rect x="120" y="30" width="60" height="60"
+        fill="green"
+        class="rotate" />
+
+  <!-- 3. Ellipse (Bounce) -->
+  <ellipse cx="250" cy="60" rx="40" ry="20"
+           fill="purple"
+           class="bounce" />
+
+  <!-- 4. Line -->
+  <line x1="20" y1="150" x2="200" y2="150"
+        stroke="black" stroke-width="3" />
+
+  <!-- 5. Polygon (Slide) -->
+  <polygon points="250,120 300,180 200,180"
+           fill="orange"
+           class="slide" />
+
+  <!-- 6. Path -->
+  <path d="M350 150 Q400 50 450 150"
+        stroke="blue"
+        stroke-width="3"
+        fill="none" />
+
+  <!-- ---------- EXTRA ELLIPSE ---------- -->
+  <ellipse cx="500" cy="80" rx="30" ry="15"
+           fill="pink" class="color-change" />
+
+  <!-- ---------- MICKEY MOUSE FACE ---------- -->
+
+  <!-- Head -->
+  <circle cx="300" cy="250" r="60" fill="black" />
+
+  <!-- Left Ear -->
+  <circle cx="240" cy="180" r="35" fill="black" />
+
+  <!-- Right Ear -->
+  <circle cx="360" cy="180" r="35" fill="black" />
+
+  <!-- Face -->
+  <ellipse cx="300" cy="260" rx="35" ry="45" fill="white" />
+
+  <!-- Eyes -->
+  <ellipse cx="285" cy="240" rx="8" ry="12" fill="black" />
+  <ellipse cx="315" cy="240" rx="8" ry="12" fill="black" />
+
+  <!-- Nose -->
+  <ellipse cx="300" cy="270" rx="10" ry="6" fill="black" />
+
+  <!-- Smile -->
+  <path d="M280 285 Q300 305 320 285"
+        stroke="black"
+        stroke-width="2"
+        fill="none" />
+
+</svg>
+
+</body>
+</html>
