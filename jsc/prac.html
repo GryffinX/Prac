@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Practice JavaScript</title>
+        <meta charset="UTF-8">
+        <style> 
+            button {
+                margin: 20px;
+                border: 2px black solid;
+                border-radius: 5px;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+            }
+            .b1 {
+                background-color: #4CAF50;
+            }
+            .b2 {
+                background-color: #e80c0c; 
+            }
+            .b3 {
+                background-color: #008CBA; 
+            }
+            .b4 {
+                background-color: #f44336; 
+            }
+            .b5 {
+                background-color: #555555; 
+            }
+            .b6 {
+                background-color: #ff00cc; 
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Practice JavaScript</h1>
+        <h3>This is a simple practice page for JavaScript.</h3>
+        <p id="para">This is a <strong>simple</strong> paragraph.</p>
+        <p id="para2">This is another paragraph.</p>
+        <button class="b1" id="b1" onclick="sayHello()">Say Hello</button>
+        <button class="b2" id="b2" onclick="changeText()">Change Text</button>
+        <button class="b3" id="b3" onclick="changeTextStyle()">Change Text Style</button>
+        <button class="b4" id="b4" onclick="changeButton()">Change Button</button>
+        <button class="b5" id="b5" onclick="peekABoo()">Peek-a-Boo</button>
+        <button class="b6" id="b6" onclick="styleAllButtons()">Style All Buttons</button>
+        <form id="form">
+            <input type="text" id="name" onchange="changed()" placeholder="Enter your name">
+            <button type="button" onclick="validateForm()">Submit</button>
+            <p id="result"></p>
+            <br>
+            <select id="dropdown" multiple size=4>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+            </select>
+            <button type="button" onclick="showSelection()">Show Selection</button>
+            <p id="res2"></p>
+            <button type="button" onclick="createList()">Create List</button>
+            <p id="res3"></p>
+            <br>
+            <input type="radio" name="gender" value="Male"> Male    
+            <input type="radio" name="gender" value="Female"> Female
+            <button type="button" onclick="showSelected()">Show Selection</button>
+            <p id="res4"></p>
+            <br>
+            <input type="checkbox" name="skill" value="JavaScript"> JavaScript
+            <input type="checkbox" name="skill" value="Python"> Python
+            <input type="checkbox" name="skill" value="Java"> Java
+            <button type="button" onclick="showSkills()">Show Skills</button>
+            <p id="res5"></p>
+        </form>
+        <textarea id="textarea" rows="4" cols="50"></textarea>
+        <button id="showTextBtn" onclick="showText()">Show Textarea Content</button>
+        <p id="res6"></p>
+        <script>
+            function sayHello() {
+                document.getElementById("para").innerHTML += "<br>Hello, World!"
+            }
+            function changeText() {
+                let txt = document.getElementById("para").innerHTML;
+                for (let i=2;i<=5;++i) {
+                    txt += "<br>This is line " + i + ".";
+                }
+                document.getElementById("para").innerHTML = txt;
+            }
+            function changeTextStyle() {
+                let para = document.getElementById("para2");
+                para.style.fontWeight = "bold";
+                para.style.color = "blue";
+                para.style.fontStyle = "italic";
+                para.style.textDecoration = "underline";
+            }
+            function changeButton() {
+                let btn = document.getElementById("b4");
+                btn.innerHTML = "Button Changed!";
+                btn.style.backgroundColor = "purple";
+                btn.style.width = "200px";
+                btn.style.height = "200px";
+            }
+            function peekABoo() {
+                let button = document.getElementById("b4");
+                button.style.visibility = "hidden";
+                setTimeout(() => {
+                    button.style.visibility = "visible";
+                }, 2000);
+            }
+            function styleAllButtons() {
+                let buttons = document.querySelectorAll("button");
+                buttons.forEach(btn => {
+                    btn.style.backgroundColor = "orange";
+                    btn.style.color = "white";
+                    btn.style.fontSize = "20px";
+                })
+                setTimeout(() => {
+                    buttons.forEach(btn => {
+                        btn.style.backgroundColor = "";
+                        btn.style.color = "";
+                        btn.style.fontSize = "";
+                    })
+                }, 2000);
+            }
+            function changed() {
+                let name = document.getElementById("name").value;
+                document.getElementById("result").innerHTML = "Hello, " + name + "!";
+            }
+            function showSelection() {
+                let dropdown = document.getElementById("dropdown");
+                let selected = [];
+                for (let option of dropdown.options) {
+                    if (option.selected) {
+                        selected.push(option.value);
+                    }
+                }
+                document.getElementById("res2").innerHTML = "Selected: " + selected.join(", ");
+            }
+            function createList() {
+                let items = ["Apple", "Banana", "Cherry", "Date"];
+                let txt = document.getElementById("res3").innerHTML = "<ul>";
+                items.forEach(item => {
+                    txt += "<li>" + item + "</li>"
+                })
+                txt += "</ul>";
+                document.getElementById("res3").innerHTML = txt;
+            }
+            function showSelected() {
+                let selected = document.querySelector('input[name="gender"]:checked');
+                document.getElementById("res4").innerHTML = "Selected: " + (selected ? selected.value : "none");
+            }
+            function showSkills() {
+                let selectedSkills = document.querySelectorAll('input[name="skill"]:checked');
+                let skills = [];
+                if (selectedSkills.length === 0) {
+                    document.getElementById("res5").innerHTML = "No skills selected.";
+                    return;
+                }
+                selectedSkills.forEach(skill => {
+                    skills.push(skill.value);
+                })
+                document.getElementById("res5").innerHTML = "Selected skills: " + skills.join(", ");
+
+            }
+            function showText() {
+                let text = document.getElementById("textarea").value;
+                document.getElementById("res6").innerHTML = "Textarea content: " + text;
+            }
+        </script>
+    </body>
+</html>

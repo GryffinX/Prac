@@ -1,0 +1,1 @@
+document.getElementById("css").innerHTML = "This is the footer element";

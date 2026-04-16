@@ -1,0 +1,37 @@
+* { /* universal selector */
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, p {  /* multiple element selector */
+    margin: 10px;
+}
+
+#css { /* id selector */
+    background-color: lightblue;
+}
+
+.container { /* class selector */
+    border: 1px solid black;
+    padding: 10px;
+}
+
+a:hover { /* pseudo-class selector */
+    color: red;
+}
+
+a.visited { /* pseudo-class selector */
+    color: yellow;
+}
+
+a.link { /* pseudo-class selector */
+    color: green;
+}
+
+a.active { /* pseudo-class selector */
+    color: orange;
+}
+
+p.important { /* class selector: selects paragraphs with the class "important" */
+    font-weight: bold;
+}

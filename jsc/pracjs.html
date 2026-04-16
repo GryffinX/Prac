@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Practice</title>
+        <meta charset="'UTF-8">
+        <style>
+            button {
+                margin: 20px;
+                color: black;
+                padding: 10px 20px;
+
+            }
+            .button1 {
+                background-color:green;
+            }
+            .button2 {
+                background-color:red;
+            }
+            .button3 {
+                background-color: blue;
+            }
+            .button4 {
+                background-color: orange;
+            }
+            .button5 {
+                background-color: purple;
+            }
+            .button6 {
+                background-color: pink;
+            }
+            .button7 {
+                background-color: cyan;
+            }
+            .button8 {
+                background-color: magenta;
+            }
+            .button9 {
+                background-color: goldenrod
+            }
+            body {
+                background-color: rgba(11, 11, 11, 0.5)
+            }
+
+            .style1 {
+                font-family: 'Times New Roman';
+                font-style: oblique;
+            }
+            .toggle {
+                background-color: yellow;
+                padding: 40px 20px;
+                border: 2px rounded dashed black;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="heading">Practice</h1>
+        <p id="para">This is a simple practice page.</p>
+        <br>
+        <p id="para2"> Yo</p>
+        <button class="button1" id="button1" onclick="sayHello()">Click me</button>
+        <br>
+        <button class="button2" id="button2" onclick="changeText()">Change text</button>
+        <br>
+        <button class="button3" id="button3" onclick="textFunction()">Change text type</button>
+        <br>
+        <button class="button4" onclick="changeSize()">Change size</button>
+        <br>
+        <button class="button5" onclick="hideButton()">Hide button</button>
+        <br>
+        <button class="button6" id="b6" onclick="showButton()" onmouseover="hover()" onmouseleave="leave()">Show button</button>
+        <br>
+        <button class="button7" id="button3" onclick="toggleButton()">Toggle button</button>
+        <br>
+        <button class="button8" onclick="toggleStyle()">Toggle style</button> 
+        <br>
+        <button class="button9" onclick="styleButtons()">Style all buttons</button>
+        <form id="form">
+            <input type="text" id="name" onchange="changed()" placeholder="Enter your name">
+            <button type="button" onclick="validateForm()">Submit</button>
+            <p id="result"></p>
+            <br>
+            <select id="dropdown" multiple size=4>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+            </select>
+            <button type="button" onclick="showSelection()">Show Selection</button>
+            <p id="res2"></p>
+            <button type="button" onclick="createList()">Create List</button>
+            <p id="res3"></p>
+            <br>
+            <input type="radio" name="gender" value="Male"> Male    
+            <input type="radio" name="gender" value="Female"> Female
+            <button type="button" onclick="showSelected()">Show Selection</button>
+            <p id="res4"></p>
+            <br>
+            <input type="checkbox" name="skill" value="JavaScript"> JavaScript
+            <input type="checkbox" name="skill" value="Python"> Python
+            <input type="checkbox" name="skill" value="Java"> Java
+            <button type="button" onclick="showSkills()">Show Skills</button>
+            <p id="res5"></p>
+        </form>
+        <textarea id="textarea" rows="4" cols="50"></textarea>
+        <button id="showTextBtn" onclick="showText()">Show Textarea Content</button>
+        <p id="res6"></p>
+        <script>
+            function sayHello() {
+                document.getElementById("heading").innerHTML = "Hello, world!";
+            }
+
+            function changeText() {
+                document.getElementById("para").innerHTML = "The text has been changed.";
+                for (let i=2; i<=5; i++) {
+                    document.getElementById("para").innerHTML += "<br>" + "This is line " + i + ".";
+                }
+            }
+
+            function textFunction() {
+                document.getElementById("para2").textContent = " This is some additional text.";
+                document.getElementById("para2").style.fontStyle = "italic";
+            }
+
+            function changeSize() {
+                document.getElementById("button1").style.padding = "50px 20px";
+                document.getElementById("button1").style.backgroundColor = "black";
+                document.getElementById("button1").style.color = "white";
+            }
+
+            function hideButton() {
+                document.getElementById("button2").style.display = "none";
+            }
+            function showButton() {
+                document.getElementById("button2").style.display = "inline-block";
+            }
+            function toggleButton() {
+                let btn = document.getElementById("button3");
+                btn.disabled = !btn.disabled;
+            }
+            function toggleStyle() {
+                document.getElementById("para").classList.toggle("style1");
+            }
+            function styleButtons() {
+                document.querySelectorAll("button").forEach(btn => {
+                   btn.classList.toggle("toggle");
+                })
+            }
+            function validateForm() {
+                const name = document.getElementById("name");
+                if (name.value == "") {
+                    document.getElementById('result').style.color = "red";
+                    document.getElementById('result').innerHTML = "Please enter your name.";
+                    name.style.borderColor = "red";
+                    name.focus();
+                    return;
+                }
+                document.getElementById('result').innerHTML = "Form Submitted, Hello " + name.value + "!";
+            }
+
+            function changed() {
+                
+            }
+
+            function hover() {
+                document.getElementById("b6").style.backgroundColor = "lightblue";
+            }
+            function leave() {
+                document.getElementById("b6").style.backgroundColor = "pink";
+            }
+            function showSelection() {
+                const dropdown = document.getElementById("dropdown");
+                let result = [];
+                for (option of dropdown.options) {
+                    if (option.selected) {
+                        result.push(option.value);
+                    }
+                }
+                document.getElementById("res2").innerHTML = "Selected: " + result.join(", ");
+                return;
+            }
+            function createList() {
+                const fruits = ["Apple", "Banana", "Cherry"];
+                let text = "";
+                for (let fruit of fruits) {
+                    text += "<li>" + fruit + "</li>";
+                }
+                document.getElementById("res3").innerHTML = "<ul>" + text + "</ul>";
+            }
+            function showSelected() {
+                const selected = document.querySelector('input[name="gender"]:checked');
+                document.getElementById("res4").innerHTML = selected ? selected.value : "none";
+            }
+            function showSkills() {
+                const selectedSkills = document.querySelectorAll('input[name="skill"]:checked');
+                let skills = [];
+                if (selectedSkills.length === 0) {
+                    document.getElementById("res5").innerHTML = "No skills selected.";
+                    return;
+                }
+                for (let skill of selectedSkills) {
+                    if (skill.checked) {
+                        skills.push(skill.value);
+                    }
+                }
+                document.getElementById("res5").innerHTML = "Selected skills: " + skills.join(", ");
+            }
+            document.querySelector("#showTextBtn").addEventListener("click", () => {
+    const text = document.getElementById("textarea").value;
+    document.getElementById("res6").textContent = "Textarea content: " + text;
+});
+        </script>
+    </body>
+</html>
